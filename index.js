@@ -20,7 +20,7 @@ mongoose
   .then(() => console.log("Database Connected!"))
   .catch((error) => console.log(error));
 
-app.use("", router);
+// app.use("", router);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
