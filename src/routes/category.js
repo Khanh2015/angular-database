@@ -5,8 +5,8 @@ import {
   getAllCategory,
   getOneCategory,
   updateCategory,
-} from "../controllers/category";
-import { checkRequestBodyCategory } from "../middlewares/checkRequestBodyCategory";
+} from "../controllers/category.js";
+import { checkRequestBodyCategory } from "../middlewares/checkRequestBodyCategory.js";
 
 const categoryRouter = Router();
 
