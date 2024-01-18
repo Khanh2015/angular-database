@@ -1,5 +1,5 @@
-import Category from "../models/Category";
-import { categoryValid } from "../validations/categoryValid";
+import Category from "../models/Category.js";
+import { categoryValid } from "../validations/categoryValid.js";
 export const getAllCategory = async (req, res) => {
   try {
     const categories = await Category.find();

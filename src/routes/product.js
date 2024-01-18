@@ -5,8 +5,8 @@ import {
   getAllProduct,
   getProductDetail,
   updateProduct,
-} from "../controllers/product";
-import { checkRequestBodyProduct } from "../middlewares/checkRequestBodyProduct";
+} from "../controllers/product.js";
+import { checkRequestBodyProduct } from "../middlewares/checkRequestBodyProduct.js";
 
 const productRouter = Router();
 

@@ -1,7 +1,7 @@
 import { Router } from "express";
-import productRouter from "./product";
-import authRouter from "./auth";
-import categoryRouter from "./category";
+import productRouter from "./product.js";
+import authRouter from "./auth.js";
+import categoryRouter from "./category.js";
 
 const router = Router();
 

@@ -1,4 +1,4 @@
-import { categoryValid } from "../validations/categoryValid";
+import { categoryValid } from "../validations/categoryValid.js";
 
 export const checkRequestBodyCategory = async (req, res, next) => {
   try {

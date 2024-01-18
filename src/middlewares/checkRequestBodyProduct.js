@@ -1,4 +1,4 @@
-import { productValid } from "../validations/productValid";
+import { productValid } from "../validations/productValid.js";
 
 export const checkRequestBodyProduct = async (req, res, next) => {
   try {
