@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-// import router from "./src/routes/index.js";
+import router from "./src/routes/index.js";
 import mongoose from "mongoose";
 import cors from "cors";
 
@@ -20,7 +20,7 @@ mongoose
   .then(() => console.log("Database Connected!"))
   .catch((error) => console.log(error));
 
-// app.use("", router);
+app.use("", router);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
