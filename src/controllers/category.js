@@ -25,10 +25,7 @@ export const getOneCategory = async (req, res) => {
         message: "Get one category fail",
       });
     }
-    return res.status(200).json({
-      message: "Get one category successfully",
-      category,
-    });
+    return res.status(200).json(category);
   } catch (error) {
     return res.status(500).json({
       name: error.name || "Server not response",

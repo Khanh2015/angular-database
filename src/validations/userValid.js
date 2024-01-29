@@ -10,3 +10,7 @@ export const signInValid = Joi.object({
   email: Joi.string().required().email(),
   password: Joi.string().required(),
 });
+
+export const updateUserValid = Joi.object({
+  email: Joi.string().required().email(),
+});
