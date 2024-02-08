@@ -7,13 +7,24 @@ import {
   updateCategory,
 } from "../controllers/category.js";
 import { checkRequestBodyCategory } from "../middlewares/checkRequestBodyCategory.js";
+import { checkIsAdmin } from "../middlewares/checkIsAdmin.js";
 
 const categoryRouter = Router();
 
 categoryRouter.get("/", getAllCategory);
 categoryRouter.get("/:id", getOneCategory);
-categoryRouter.delete("/:id", deleteCategory);
-categoryRouter.put("/:id", checkRequestBodyCategory, updateCategory);
-categoryRouter.post("/", checkRequestBodyCategory, createCategory);
+categoryRouter.delete("/:id", checkIsAdmin, deleteCategory);
+categoryRouter.put(
+  "/:id",
+  checkIsAdmin,
+  checkRequestBodyCategory,
+  updateCategory
+);
+categoryRouter.post(
+  "/",
+  checkIsAdmin,
+  checkRequestBodyCategory,
+  createCategory
+);
 
 export default categoryRouter;

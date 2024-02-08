@@ -6,13 +6,14 @@ import {
   updateUser,
 } from "../controllers/user.js";
 import { signUp } from "../controllers/auth.js";
+import { checkIsAdmin } from "../middlewares/checkIsAdmin.js";
 
 const userRouter = Router();
 
 userRouter.get("/", getAllUser);
 userRouter.get("/:id", getOneUser);
-userRouter.post("/", signUp);
-userRouter.put("/:id", updateUser);
-userRouter.delete("/:id", deleteUser);
+userRouter.post("/", checkIsAdmin, signUp);
+userRouter.put("/:id", checkIsAdmin, updateUser);
+userRouter.delete("/:id", checkIsAdmin, deleteUser);
 
 export default userRouter;

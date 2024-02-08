@@ -18,6 +18,25 @@ export const getAllProduct = async (req, res) => {
   }
 };
 
+export const getProductsPaginate = async (req, res) => {
+  try {
+    const { _page = 1, _limit = 5 } = req.query;
+    const options = { page: _page, limit: _limit };
+    const products = await Product.paginate({}, options);
+    if (!products) {
+      return res.status(400).json({
+        message: "Get products error",
+      });
+    }
+    return res.status(200).json(products);
+  } catch (error) {
+    return res.status(500).json({
+      name: error.name || "Server not response",
+      message: error.message || "Server not response",
+    });
+  }
+};
+
 export const getProductDetail = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -100,6 +119,26 @@ export const updateProduct = async (req, res) => {
       message: "Update product successfully",
       product,
     });
+  } catch (error) {
+    return res.status(500).json({
+      name: error.name || "Server not response",
+      message: error.message || "Server not response",
+    });
+  }
+};
+
+export const searchProduct = async (req, res) => {
+  const { query } = req.query;
+  try {
+    const products = await Product.find({
+      title: { $regex: query, $options: "i" },
+    });
+    if (!products) {
+      return res.status(400).json({
+        message: "Can not find product",
+      });
+    }
+    return res.status(200).json(products);
   } catch (error) {
     return res.status(500).json({
       name: error.name || "Server not response",
